@@ -26,7 +26,7 @@
     "dns": {
         "enable": true,
         "listen": "0.0.0.0:1053",
-        "ipv6": true,
+        "ipv6": false,
         "respect-rules": true,
         "use-hosts": true,
         "use-system-hosts": false,
@@ -39,8 +39,16 @@
         "nameserver-policy": {
             "rule-set:ir,cn,ru": [
                 "8.8.8.8#DIRECT"
+            ],
+            "+.cloudflare.com": [
+                "8.8.8.8#DIRECT"
             ]
-        }
+        },
+        "enhanced-mode": "fake-ip",
+        "fake-ip-range": "198.18.0.1/16",
+        "fake-ip-filter": [
+            "geosite:private"
+        ]
     },
     "tun": {
         "enable": true,
@@ -84,573 +92,23 @@
     },
     "proxies": [
         {
-            "name": "💦 1 - VLESS - Domain - 443",
+            "name": "💦 1 - VLESS - Domain - 2053",
             "type": "vless",
-            "server": "games2-1h9.pages.dev",
-            "port": 443,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
-            "tls": true,
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/whMrgbUo5kttvbsr/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "servername": "GaMES2-1H9.PagES.DEV",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 2 - VLESS - Domain - 443",
-            "type": "vless",
-            "server": "www.speedtest.net",
-            "port": 443,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
-            "tls": true,
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/WFmUoibChxswfiJd/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "servername": "gAMes2-1h9.Pages.DEv",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 3 - VLESS - IPv4 - 443",
-            "type": "vless",
-            "server": "188.114.96.3",
-            "port": 443,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
-            "tls": true,
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/9PaXYUWDD5NJVKtr/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "servername": "gAmES2-1h9.pAges.DeV",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 4 - VLESS - IPv4 - 443",
-            "type": "vless",
-            "server": "188.114.97.3",
-            "port": 443,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
-            "tls": true,
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/1UDSdEemgpeSbq0Z/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "servername": "gaMES2-1H9.PagEs.DEv",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 5 - VLESS - IPv6 - 443",
-            "type": "vless",
-            "server": "2a06:98c1:3121::3",
-            "port": 443,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
-            "tls": true,
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/Wd0JSFSK9nGI1EXP/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "servername": "gaMes2-1h9.PAgeS.DEV",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 6 - VLESS - IPv6 - 443",
-            "type": "vless",
-            "server": "2a06:98c1:3120::3",
-            "port": 443,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
-            "tls": true,
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/SwLfbmtfnxW0uwOQ/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "servername": "GAmes2-1h9.PAgeS.DEV",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 7 - VLESS - Clean IP - 443",
-            "type": "vless",
-            "server": "www.gov.ua",
-            "port": 443,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
-            "tls": true,
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/5iO6QE90EvtmpROj/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "servername": "games2-1h9.pAGES.dEV",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 8 - VLESS - Clean IP - 443",
-            "type": "vless",
-            "server": "www.zsu.gov.ua",
-            "port": 443,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
-            "tls": true,
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/1kbDvjQhfhGSGhnG/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "servername": "GAmEs2-1h9.pages.DeV",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 9 - VLESS - Clean IP - 443",
-            "type": "vless",
-            "server": "malaysia.com",
-            "port": 443,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
-            "tls": true,
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/mABhMsDE624AMLla/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "servername": "gAmeS2-1h9.Pages.DEv",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 10 - VLESS - Clean IP - 443",
-            "type": "vless",
-            "server": "www.visa.co.jp",
-            "port": 443,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
-            "tls": true,
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/lRfAgtZj6Zz7bjMu/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "servername": "GaMes2-1h9.pages.dEv",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 11 - VLESS - Clean IP - 443",
-            "type": "vless",
-            "server": "www.csgo.com",
-            "port": 443,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
-            "tls": true,
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/i4msRIMhwv6yTV9W/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "servername": "games2-1H9.PAgES.dEV",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 12 - VLESS - Clean IP - 443",
-            "type": "vless",
-            "server": "www.visa.com.hk",
-            "port": 443,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
-            "tls": true,
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/PRxX4JqcBs0MdcUR/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "servername": "GamEs2-1h9.Pages.DeV",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 13 - VLESS - Clean IP - 443",
-            "type": "vless",
-            "server": "sky.rethinkdns.com",
-            "port": 443,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
-            "tls": true,
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/IJj3CDJe6Tx2LHvQ/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "servername": "gAmeS2-1H9.PAgeS.DEV",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 14 - VLESS - Clean IP - 443",
-            "type": "vless",
-            "server": "fbi.gov",
-            "port": 443,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
-            "tls": true,
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/lE7dR5pS6FbbEEPu/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "servername": "GAmeS2-1H9.pAgES.dEv",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 15 - VLESS - Clean IP - 443",
-            "type": "vless",
-            "server": "time.is",
-            "port": 443,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
-            "tls": true,
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/vXi0S7bFwdDzdczQ/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "servername": "GameS2-1H9.PaGeS.DEV",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 16 - VLESS - Clean IP - 443",
-            "type": "vless",
-            "server": "ipw.nscl.ir",
-            "port": 443,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
-            "tls": true,
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/qZUsNo76FCy434Us/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "servername": "games2-1H9.PAgeS.DeV",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 17 - VLESS - Clean IP - 443",
-            "type": "vless",
-            "server": "www.wto.org",
-            "port": 443,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
-            "tls": true,
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/i4HcNTjv66uXZxZF/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "servername": "GAmES2-1h9.Pages.dEv",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 18 - VLESS - Clean IP - 443",
-            "type": "vless",
-            "server": "ip.sb",
-            "port": 443,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
-            "tls": true,
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/56arYbm12ybxJYua/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "servername": "GAMEs2-1H9.pAGEs.DEv",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 19 - VLESS - Clean IP - 443",
-            "type": "vless",
-            "server": "zula.ir",
-            "port": 443,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
-            "tls": true,
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/AX7D3VcW47pm9vhH/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "servername": "GAmES2-1h9.PAgES.dEv",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 20 - VLESS - Clean IP - 443",
-            "type": "vless",
-            "server": "creativecommons.org",
-            "port": 443,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
-            "tls": true,
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/zekqPizbdS16Vp8f/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "servername": "gAmes2-1H9.pAges.dev",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 21 - VLESS - Clean IP - 443",
-            "type": "vless",
-            "server": "go.inmobi.com",
-            "port": 443,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
-            "tls": true,
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/H8YkezzyshopCDGI/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "servername": "GaMes2-1h9.PaGeS.dev",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 22 - VLESS - Clean IP - 443",
-            "type": "vless",
-            "server": "cdnjs.com",
-            "port": 443,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
-            "tls": true,
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/HFb5P2cr3iAOQ7MW/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "servername": "GaMEs2-1H9.pAgeS.DeV",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 23 - VLESS - Domain - 2053",
-            "type": "vless",
-            "server": "games2-1h9.pages.dev",
+            "server": "test-e34.pages.dev",
             "port": 2053,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
+            "uuid": "ed7a6743-bec4-4412-a96d-3068aa7f1eeb",
             "tls": true,
             "network": "ws",
             "udp": true,
             "ws-opts": {
-                "path": "/wJEQmWpRqpRo1YPX/ZGUucmFkaWNhbGx5LnBybw==",
+                "path": "/B7sj5QhX4nrGhIT5/ZGUucmFkaWNhbGx5LnBybw==",
                 "headers": {
-                    "host": "games2-1h9.pages.dev"
+                    "host": "test-e34.pages.dev"
                 },
                 "max-early-data": 2560,
                 "early-data-header-name": "Sec-WebSocket-Protocol"
             },
-            "servername": "GaMeS2-1h9.PaGeS.DeV",
+            "servername": "tEST-e34.pagEs.DeV",
             "alpn": [
                 "h2",
                 "http/1.1"
@@ -659,23 +117,23 @@
             "skip-cert-verify": false
         },
         {
-            "name": "💦 24 - VLESS - Domain - 2053",
+            "name": "💦 2 - VLESS - Domain - 2053",
             "type": "vless",
             "server": "www.speedtest.net",
             "port": 2053,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
+            "uuid": "ed7a6743-bec4-4412-a96d-3068aa7f1eeb",
             "tls": true,
             "network": "ws",
             "udp": true,
             "ws-opts": {
-                "path": "/RxdJIEb7yGkhT249/ZGUucmFkaWNhbGx5LnBybw==",
+                "path": "/oHpwwLWWXiDMh8x7/ZGUucmFkaWNhbGx5LnBybw==",
                 "headers": {
-                    "host": "games2-1h9.pages.dev"
+                    "host": "test-e34.pages.dev"
                 },
                 "max-early-data": 2560,
                 "early-data-header-name": "Sec-WebSocket-Protocol"
             },
-            "servername": "gAMES2-1H9.pAgES.dEv",
+            "servername": "tESt-E34.pAGEs.DEV",
             "alpn": [
                 "h2",
                 "http/1.1"
@@ -684,23 +142,23 @@
             "skip-cert-verify": false
         },
         {
-            "name": "💦 25 - VLESS - IPv4 - 2053",
+            "name": "💦 3 - VLESS - IPv4 - 2053",
             "type": "vless",
-            "server": "188.114.96.3",
+            "server": "172.66.44.148",
             "port": 2053,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
+            "uuid": "ed7a6743-bec4-4412-a96d-3068aa7f1eeb",
             "tls": true,
             "network": "ws",
             "udp": true,
             "ws-opts": {
-                "path": "/kFJrJjzXqoPqrcR1/ZGUucmFkaWNhbGx5LnBybw==",
+                "path": "/5ieIdUufjTRF5vGs/ZGUucmFkaWNhbGx5LnBybw==",
                 "headers": {
-                    "host": "games2-1h9.pages.dev"
+                    "host": "test-e34.pages.dev"
                 },
                 "max-early-data": 2560,
                 "early-data-header-name": "Sec-WebSocket-Protocol"
             },
-            "servername": "gaMeS2-1h9.PaGeS.dev",
+            "servername": "TEsT-e34.pAgeS.dev",
             "alpn": [
                 "h2",
                 "http/1.1"
@@ -709,23 +167,23 @@
             "skip-cert-verify": false
         },
         {
-            "name": "💦 26 - VLESS - IPv4 - 2053",
+            "name": "💦 4 - VLESS - IPv4 - 2053",
             "type": "vless",
-            "server": "188.114.97.3",
+            "server": "172.66.47.108",
             "port": 2053,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
+            "uuid": "ed7a6743-bec4-4412-a96d-3068aa7f1eeb",
             "tls": true,
             "network": "ws",
             "udp": true,
             "ws-opts": {
-                "path": "/EoFzpOwDIJOMJXiC/ZGUucmFkaWNhbGx5LnBybw==",
+                "path": "/ATfspOQ2SsYtWGQG/ZGUucmFkaWNhbGx5LnBybw==",
                 "headers": {
-                    "host": "games2-1h9.pages.dev"
+                    "host": "test-e34.pages.dev"
                 },
                 "max-early-data": 2560,
                 "early-data-header-name": "Sec-WebSocket-Protocol"
             },
-            "servername": "GAmeS2-1h9.PAGES.dEv",
+            "servername": "tEST-e34.pageS.Dev",
             "alpn": [
                 "h2",
                 "http/1.1"
@@ -734,73 +192,23 @@
             "skip-cert-verify": false
         },
         {
-            "name": "💦 27 - VLESS - IPv6 - 2053",
-            "type": "vless",
-            "server": "2a06:98c1:3121::3",
-            "port": 2053,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
-            "tls": true,
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/3pYE61frAUnK8BmH/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "servername": "gaMES2-1h9.PAgeS.DEv",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 28 - VLESS - IPv6 - 2053",
-            "type": "vless",
-            "server": "2a06:98c1:3120::3",
-            "port": 2053,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
-            "tls": true,
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/7q1PxEq6vLFmRMV7/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "servername": "GAmEs2-1h9.PaGes.dEV",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 29 - VLESS - Clean IP - 2053",
+            "name": "💦 5 - VLESS - Clean IP - 2053",
             "type": "vless",
             "server": "www.gov.ua",
             "port": 2053,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
+            "uuid": "ed7a6743-bec4-4412-a96d-3068aa7f1eeb",
             "tls": true,
             "network": "ws",
             "udp": true,
             "ws-opts": {
-                "path": "/7Kz2YgmojZvvbOER/ZGUucmFkaWNhbGx5LnBybw==",
+                "path": "/sKPfAok0FHlSncm9/ZGUucmFkaWNhbGx5LnBybw==",
                 "headers": {
-                    "host": "games2-1h9.pages.dev"
+                    "host": "test-e34.pages.dev"
                 },
                 "max-early-data": 2560,
                 "early-data-header-name": "Sec-WebSocket-Protocol"
             },
-            "servername": "Games2-1h9.pageS.dEV",
+            "servername": "tEST-E34.PAGES.Dev",
             "alpn": [
                 "h2",
                 "http/1.1"
@@ -809,23 +217,23 @@
             "skip-cert-verify": false
         },
         {
-            "name": "💦 30 - VLESS - Clean IP - 2053",
+            "name": "💦 6 - VLESS - Clean IP - 2053",
             "type": "vless",
             "server": "www.zsu.gov.ua",
             "port": 2053,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
+            "uuid": "ed7a6743-bec4-4412-a96d-3068aa7f1eeb",
             "tls": true,
             "network": "ws",
             "udp": true,
             "ws-opts": {
-                "path": "/RmSS5TyanrUINpot/ZGUucmFkaWNhbGx5LnBybw==",
+                "path": "/blxj3gRmcg4cz0VK/ZGUucmFkaWNhbGx5LnBybw==",
                 "headers": {
-                    "host": "games2-1h9.pages.dev"
+                    "host": "test-e34.pages.dev"
                 },
                 "max-early-data": 2560,
                 "early-data-header-name": "Sec-WebSocket-Protocol"
             },
-            "servername": "gamES2-1H9.PaGES.deV",
+            "servername": "teSt-E34.pAgEs.Dev",
             "alpn": [
                 "h2",
                 "http/1.1"
@@ -834,23 +242,23 @@
             "skip-cert-verify": false
         },
         {
-            "name": "💦 31 - VLESS - Clean IP - 2053",
+            "name": "💦 7 - VLESS - Clean IP - 2053",
             "type": "vless",
             "server": "malaysia.com",
             "port": 2053,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
+            "uuid": "ed7a6743-bec4-4412-a96d-3068aa7f1eeb",
             "tls": true,
             "network": "ws",
             "udp": true,
             "ws-opts": {
-                "path": "/F0GK0Ha7dPpsvJT5/ZGUucmFkaWNhbGx5LnBybw==",
+                "path": "/NACIn44XFM2ADlpy/ZGUucmFkaWNhbGx5LnBybw==",
                 "headers": {
-                    "host": "games2-1h9.pages.dev"
+                    "host": "test-e34.pages.dev"
                 },
                 "max-early-data": 2560,
                 "early-data-header-name": "Sec-WebSocket-Protocol"
             },
-            "servername": "games2-1H9.PagES.dEv",
+            "servername": "TEsT-e34.pAGES.Dev",
             "alpn": [
                 "h2",
                 "http/1.1"
@@ -859,23 +267,23 @@
             "skip-cert-verify": false
         },
         {
-            "name": "💦 32 - VLESS - Clean IP - 2053",
+            "name": "💦 8 - VLESS - Clean IP - 2053",
             "type": "vless",
             "server": "www.visa.co.jp",
             "port": 2053,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
+            "uuid": "ed7a6743-bec4-4412-a96d-3068aa7f1eeb",
             "tls": true,
             "network": "ws",
             "udp": true,
             "ws-opts": {
-                "path": "/qgLELeUGKIMVuFIg/ZGUucmFkaWNhbGx5LnBybw==",
+                "path": "/A8db2juASK9q2h1P/ZGUucmFkaWNhbGx5LnBybw==",
                 "headers": {
-                    "host": "games2-1h9.pages.dev"
+                    "host": "test-e34.pages.dev"
                 },
                 "max-early-data": 2560,
                 "early-data-header-name": "Sec-WebSocket-Protocol"
             },
-            "servername": "gaMes2-1h9.PaGeS.dEv",
+            "servername": "TeSt-E34.PaGEs.dEv",
             "alpn": [
                 "h2",
                 "http/1.1"
@@ -884,23 +292,23 @@
             "skip-cert-verify": false
         },
         {
-            "name": "💦 33 - VLESS - Clean IP - 2053",
+            "name": "💦 9 - VLESS - Clean IP - 2053",
             "type": "vless",
             "server": "www.csgo.com",
             "port": 2053,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
+            "uuid": "ed7a6743-bec4-4412-a96d-3068aa7f1eeb",
             "tls": true,
             "network": "ws",
             "udp": true,
             "ws-opts": {
-                "path": "/bv86qOZfSMPPvW4G/ZGUucmFkaWNhbGx5LnBybw==",
+                "path": "/3CLdNqKpGEA8pYRx/ZGUucmFkaWNhbGx5LnBybw==",
                 "headers": {
-                    "host": "games2-1h9.pages.dev"
+                    "host": "test-e34.pages.dev"
                 },
                 "max-early-data": 2560,
                 "early-data-header-name": "Sec-WebSocket-Protocol"
             },
-            "servername": "games2-1h9.pAGeS.DEV",
+            "servername": "tESt-e34.pAges.dEV",
             "alpn": [
                 "h2",
                 "http/1.1"
@@ -909,23 +317,23 @@
             "skip-cert-verify": false
         },
         {
-            "name": "💦 34 - VLESS - Clean IP - 2053",
+            "name": "💦 10 - VLESS - Clean IP - 2053",
             "type": "vless",
             "server": "www.visa.com.hk",
             "port": 2053,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
+            "uuid": "ed7a6743-bec4-4412-a96d-3068aa7f1eeb",
             "tls": true,
             "network": "ws",
             "udp": true,
             "ws-opts": {
-                "path": "/q31GhecfGjeU1tlc/ZGUucmFkaWNhbGx5LnBybw==",
+                "path": "/lIa7pCORXnEXT26N/ZGUucmFkaWNhbGx5LnBybw==",
                 "headers": {
-                    "host": "games2-1h9.pages.dev"
+                    "host": "test-e34.pages.dev"
                 },
                 "max-early-data": 2560,
                 "early-data-header-name": "Sec-WebSocket-Protocol"
             },
-            "servername": "Games2-1h9.paGEs.DEV",
+            "servername": "teST-e34.PageS.dEV",
             "alpn": [
                 "h2",
                 "http/1.1"
@@ -934,23 +342,23 @@
             "skip-cert-verify": false
         },
         {
-            "name": "💦 35 - VLESS - Clean IP - 2053",
+            "name": "💦 11 - VLESS - Clean IP - 2053",
             "type": "vless",
             "server": "sky.rethinkdns.com",
             "port": 2053,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
+            "uuid": "ed7a6743-bec4-4412-a96d-3068aa7f1eeb",
             "tls": true,
             "network": "ws",
             "udp": true,
             "ws-opts": {
-                "path": "/GhgUG9gEocF5tWYB/ZGUucmFkaWNhbGx5LnBybw==",
+                "path": "/zrN8n74y3a3Jy4M1/ZGUucmFkaWNhbGx5LnBybw==",
                 "headers": {
-                    "host": "games2-1h9.pages.dev"
+                    "host": "test-e34.pages.dev"
                 },
                 "max-early-data": 2560,
                 "early-data-header-name": "Sec-WebSocket-Protocol"
             },
-            "servername": "GAmeS2-1h9.pAGeS.DEv",
+            "servername": "TEst-E34.PAgEs.DEV",
             "alpn": [
                 "h2",
                 "http/1.1"
@@ -959,23 +367,23 @@
             "skip-cert-verify": false
         },
         {
-            "name": "💦 36 - VLESS - Clean IP - 2053",
+            "name": "💦 12 - VLESS - Clean IP - 2053",
             "type": "vless",
             "server": "fbi.gov",
             "port": 2053,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
+            "uuid": "ed7a6743-bec4-4412-a96d-3068aa7f1eeb",
             "tls": true,
             "network": "ws",
             "udp": true,
             "ws-opts": {
-                "path": "/dkJe2x6G1ejMKLo9/ZGUucmFkaWNhbGx5LnBybw==",
+                "path": "/b4LGfTdiBpwstozt/ZGUucmFkaWNhbGx5LnBybw==",
                 "headers": {
-                    "host": "games2-1h9.pages.dev"
+                    "host": "test-e34.pages.dev"
                 },
                 "max-early-data": 2560,
                 "early-data-header-name": "Sec-WebSocket-Protocol"
             },
-            "servername": "gAmes2-1H9.PaGEs.dEv",
+            "servername": "teSt-E34.pAGeS.dev",
             "alpn": [
                 "h2",
                 "http/1.1"
@@ -984,23 +392,23 @@
             "skip-cert-verify": false
         },
         {
-            "name": "💦 37 - VLESS - Clean IP - 2053",
+            "name": "💦 13 - VLESS - Clean IP - 2053",
             "type": "vless",
             "server": "time.is",
             "port": 2053,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
+            "uuid": "ed7a6743-bec4-4412-a96d-3068aa7f1eeb",
             "tls": true,
             "network": "ws",
             "udp": true,
             "ws-opts": {
-                "path": "/1X6VKq8v9CkUpraX/ZGUucmFkaWNhbGx5LnBybw==",
+                "path": "/LNXkyCXtl4DvonIO/ZGUucmFkaWNhbGx5LnBybw==",
                 "headers": {
-                    "host": "games2-1h9.pages.dev"
+                    "host": "test-e34.pages.dev"
                 },
                 "max-early-data": 2560,
                 "early-data-header-name": "Sec-WebSocket-Protocol"
             },
-            "servername": "GAmES2-1H9.pAgEs.dev",
+            "servername": "tEst-e34.paGEs.dEV",
             "alpn": [
                 "h2",
                 "http/1.1"
@@ -1009,23 +417,23 @@
             "skip-cert-verify": false
         },
         {
-            "name": "💦 38 - VLESS - Clean IP - 2053",
+            "name": "💦 14 - VLESS - Clean IP - 2053",
             "type": "vless",
             "server": "ipw.nscl.ir",
             "port": 2053,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
+            "uuid": "ed7a6743-bec4-4412-a96d-3068aa7f1eeb",
             "tls": true,
             "network": "ws",
             "udp": true,
             "ws-opts": {
-                "path": "/MKvURPfEUAYfN6rN/ZGUucmFkaWNhbGx5LnBybw==",
+                "path": "/ZNoe33Vm5N8zGsw4/ZGUucmFkaWNhbGx5LnBybw==",
                 "headers": {
-                    "host": "games2-1h9.pages.dev"
+                    "host": "test-e34.pages.dev"
                 },
                 "max-early-data": 2560,
                 "early-data-header-name": "Sec-WebSocket-Protocol"
             },
-            "servername": "GAmes2-1H9.PaGeS.DEV",
+            "servername": "TESt-E34.pagEs.dEV",
             "alpn": [
                 "h2",
                 "http/1.1"
@@ -1034,23 +442,23 @@
             "skip-cert-verify": false
         },
         {
-            "name": "💦 39 - VLESS - Clean IP - 2053",
+            "name": "💦 15 - VLESS - Clean IP - 2053",
             "type": "vless",
             "server": "www.wto.org",
             "port": 2053,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
+            "uuid": "ed7a6743-bec4-4412-a96d-3068aa7f1eeb",
             "tls": true,
             "network": "ws",
             "udp": true,
             "ws-opts": {
-                "path": "/oabdq6QTr82Tgyml/ZGUucmFkaWNhbGx5LnBybw==",
+                "path": "/5WEWVt1piYBLgmI8/ZGUucmFkaWNhbGx5LnBybw==",
                 "headers": {
-                    "host": "games2-1h9.pages.dev"
+                    "host": "test-e34.pages.dev"
                 },
                 "max-early-data": 2560,
                 "early-data-header-name": "Sec-WebSocket-Protocol"
             },
-            "servername": "GAMEs2-1h9.PAgeS.DeV",
+            "servername": "teST-E34.pAGeS.Dev",
             "alpn": [
                 "h2",
                 "http/1.1"
@@ -1059,23 +467,23 @@
             "skip-cert-verify": false
         },
         {
-            "name": "💦 40 - VLESS - Clean IP - 2053",
+            "name": "💦 16 - VLESS - Clean IP - 2053",
             "type": "vless",
             "server": "ip.sb",
             "port": 2053,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
+            "uuid": "ed7a6743-bec4-4412-a96d-3068aa7f1eeb",
             "tls": true,
             "network": "ws",
             "udp": true,
             "ws-opts": {
-                "path": "/BltJstFdwoICdAIT/ZGUucmFkaWNhbGx5LnBybw==",
+                "path": "/tCBa1dgVfAapuUNH/ZGUucmFkaWNhbGx5LnBybw==",
                 "headers": {
-                    "host": "games2-1h9.pages.dev"
+                    "host": "test-e34.pages.dev"
                 },
                 "max-early-data": 2560,
                 "early-data-header-name": "Sec-WebSocket-Protocol"
             },
-            "servername": "GAMEs2-1H9.paGes.dEV",
+            "servername": "tESt-E34.pageS.dev",
             "alpn": [
                 "h2",
                 "http/1.1"
@@ -1084,23 +492,23 @@
             "skip-cert-verify": false
         },
         {
-            "name": "💦 41 - VLESS - Clean IP - 2053",
+            "name": "💦 17 - VLESS - Clean IP - 2053",
             "type": "vless",
             "server": "zula.ir",
             "port": 2053,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
+            "uuid": "ed7a6743-bec4-4412-a96d-3068aa7f1eeb",
             "tls": true,
             "network": "ws",
             "udp": true,
             "ws-opts": {
-                "path": "/4M7QUopmKG8ZPQVV/ZGUucmFkaWNhbGx5LnBybw==",
+                "path": "/OuAUnVI83I6jCo5j/ZGUucmFkaWNhbGx5LnBybw==",
                 "headers": {
-                    "host": "games2-1h9.pages.dev"
+                    "host": "test-e34.pages.dev"
                 },
                 "max-early-data": 2560,
                 "early-data-header-name": "Sec-WebSocket-Protocol"
             },
-            "servername": "gaMES2-1H9.PaGEs.deV",
+            "servername": "TesT-E34.paGES.DeV",
             "alpn": [
                 "h2",
                 "http/1.1"
@@ -1109,23 +517,23 @@
             "skip-cert-verify": false
         },
         {
-            "name": "💦 42 - VLESS - Clean IP - 2053",
+            "name": "💦 18 - VLESS - Clean IP - 2053",
             "type": "vless",
             "server": "creativecommons.org",
             "port": 2053,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
+            "uuid": "ed7a6743-bec4-4412-a96d-3068aa7f1eeb",
             "tls": true,
             "network": "ws",
             "udp": true,
             "ws-opts": {
-                "path": "/sjRT2frTYgYNjqn1/ZGUucmFkaWNhbGx5LnBybw==",
+                "path": "/DElfSp1EiIL5kIHZ/ZGUucmFkaWNhbGx5LnBybw==",
                 "headers": {
-                    "host": "games2-1h9.pages.dev"
+                    "host": "test-e34.pages.dev"
                 },
                 "max-early-data": 2560,
                 "early-data-header-name": "Sec-WebSocket-Protocol"
             },
-            "servername": "gAMes2-1H9.paGEs.DEV",
+            "servername": "TesT-E34.pagES.deV",
             "alpn": [
                 "h2",
                 "http/1.1"
@@ -1134,23 +542,23 @@
             "skip-cert-verify": false
         },
         {
-            "name": "💦 43 - VLESS - Clean IP - 2053",
+            "name": "💦 19 - VLESS - Clean IP - 2053",
             "type": "vless",
             "server": "go.inmobi.com",
             "port": 2053,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
+            "uuid": "ed7a6743-bec4-4412-a96d-3068aa7f1eeb",
             "tls": true,
             "network": "ws",
             "udp": true,
             "ws-opts": {
-                "path": "/EW0MNT9Tiu1yfNt0/ZGUucmFkaWNhbGx5LnBybw==",
+                "path": "/Nt6tu09j7M0bo5K2/ZGUucmFkaWNhbGx5LnBybw==",
                 "headers": {
-                    "host": "games2-1h9.pages.dev"
+                    "host": "test-e34.pages.dev"
                 },
                 "max-early-data": 2560,
                 "early-data-header-name": "Sec-WebSocket-Protocol"
             },
-            "servername": "GAmeS2-1H9.PAgES.DEV",
+            "servername": "test-E34.PaGEs.dEv",
             "alpn": [
                 "h2",
                 "http/1.1"
@@ -1159,1079 +567,23 @@
             "skip-cert-verify": false
         },
         {
-            "name": "💦 44 - VLESS - Clean IP - 2053",
+            "name": "💦 20 - VLESS - Clean IP - 2053",
             "type": "vless",
             "server": "cdnjs.com",
             "port": 2053,
-            "uuid": "6b56d219-f240-4eac-bbe5-dbcfd0e64133",
+            "uuid": "ed7a6743-bec4-4412-a96d-3068aa7f1eeb",
             "tls": true,
             "network": "ws",
             "udp": true,
             "ws-opts": {
-                "path": "/spVSscFy8QUdlPZY/ZGUucmFkaWNhbGx5LnBybw==",
+                "path": "/jyYARkXxwQPtNjs0/ZGUucmFkaWNhbGx5LnBybw==",
                 "headers": {
-                    "host": "games2-1h9.pages.dev"
+                    "host": "test-e34.pages.dev"
                 },
                 "max-early-data": 2560,
                 "early-data-header-name": "Sec-WebSocket-Protocol"
             },
-            "servername": "gAMeS2-1H9.paGeS.Dev",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 1 - Trojan - Domain - 443",
-            "type": "trojan",
-            "server": "games2-1h9.pages.dev",
-            "port": 443,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/trKvQvUYYZv1VrkFag/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "gAmES2-1h9.pAGes.deV",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 2 - Trojan - Domain - 443",
-            "type": "trojan",
-            "server": "www.speedtest.net",
-            "port": 443,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/trvzdHwZ0ST9lsA8wa/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "GAmeS2-1h9.pagES.DEv",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 3 - Trojan - IPv4 - 443",
-            "type": "trojan",
-            "server": "188.114.96.3",
-            "port": 443,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/trKJnl8US7rTWJYLX3/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "gaMeS2-1h9.PAGes.DeV",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 4 - Trojan - IPv4 - 443",
-            "type": "trojan",
-            "server": "188.114.97.3",
-            "port": 443,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/tr3pk6ru2TzjmI9Wbk/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "GAMES2-1h9.PAgES.deV",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 5 - Trojan - IPv6 - 443",
-            "type": "trojan",
-            "server": "2a06:98c1:3121::3",
-            "port": 443,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/trHyYc26pUTMI3Cti7/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "gamEs2-1H9.pageS.Dev",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 6 - Trojan - IPv6 - 443",
-            "type": "trojan",
-            "server": "2a06:98c1:3120::3",
-            "port": 443,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/treqfLHrOuHOW5WXRU/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "GameS2-1H9.Pages.DEv",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 7 - Trojan - Clean IP - 443",
-            "type": "trojan",
-            "server": "www.gov.ua",
-            "port": 443,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/trnJsuOs0ysnR3zQBz/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "gameS2-1h9.PAGEs.deV",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 8 - Trojan - Clean IP - 443",
-            "type": "trojan",
-            "server": "www.zsu.gov.ua",
-            "port": 443,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/tryIVep4wnM2SHWrnt/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "GaMES2-1h9.pAGeS.DEv",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 9 - Trojan - Clean IP - 443",
-            "type": "trojan",
-            "server": "malaysia.com",
-            "port": 443,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/trrP1PZDxjSwEcMZRP/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "GAmeS2-1h9.pagES.dev",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 10 - Trojan - Clean IP - 443",
-            "type": "trojan",
-            "server": "www.visa.co.jp",
-            "port": 443,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/trwG3HX9IGLlUOLecM/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "gAMeS2-1h9.pAGES.dEv",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 11 - Trojan - Clean IP - 443",
-            "type": "trojan",
-            "server": "www.csgo.com",
-            "port": 443,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/trmAY0jbNubeBw4nr9/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "gAmes2-1H9.pageS.deV",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 12 - Trojan - Clean IP - 443",
-            "type": "trojan",
-            "server": "www.visa.com.hk",
-            "port": 443,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/trP5CGv0gllrH8GM7U/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "gAmEs2-1H9.pagEs.DeV",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 13 - Trojan - Clean IP - 443",
-            "type": "trojan",
-            "server": "sky.rethinkdns.com",
-            "port": 443,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/trarzRgRviXsskfCK6/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "GAmEs2-1h9.PaGes.dEV",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 14 - Trojan - Clean IP - 443",
-            "type": "trojan",
-            "server": "fbi.gov",
-            "port": 443,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/trODQDNszQvRA6t4cd/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "GameS2-1h9.pAGes.DEv",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 15 - Trojan - Clean IP - 443",
-            "type": "trojan",
-            "server": "time.is",
-            "port": 443,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/trmx5P1Cv7pNxVt75D/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "gAMeS2-1H9.PAgeS.Dev",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 16 - Trojan - Clean IP - 443",
-            "type": "trojan",
-            "server": "ipw.nscl.ir",
-            "port": 443,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/trln5NXKzTGn1wIpxz/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "GamES2-1H9.pAGeS.dEv",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 17 - Trojan - Clean IP - 443",
-            "type": "trojan",
-            "server": "www.wto.org",
-            "port": 443,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/trOft1HD6ICq6CcUbj/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "GAMeS2-1H9.pAGes.deV",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 18 - Trojan - Clean IP - 443",
-            "type": "trojan",
-            "server": "ip.sb",
-            "port": 443,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/trBqRBTFfF2P37FNk0/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "gaMes2-1H9.PAGes.dEV",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 19 - Trojan - Clean IP - 443",
-            "type": "trojan",
-            "server": "zula.ir",
-            "port": 443,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/trPKwSZCVgKuwo0LQc/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "GAmeS2-1H9.PaGES.dEV",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 20 - Trojan - Clean IP - 443",
-            "type": "trojan",
-            "server": "creativecommons.org",
-            "port": 443,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/tralpgQW7WRqDkl6mb/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "GAmes2-1H9.PAGeS.DEv",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 21 - Trojan - Clean IP - 443",
-            "type": "trojan",
-            "server": "go.inmobi.com",
-            "port": 443,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/trAXLE8Fnznf6xMAux/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "GAMEs2-1h9.PagEs.DEv",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 22 - Trojan - Clean IP - 443",
-            "type": "trojan",
-            "server": "cdnjs.com",
-            "port": 443,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/trGtm6nR9OM8o2t6E0/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "GAMeS2-1H9.pages.dEV",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 23 - Trojan - Domain - 2053",
-            "type": "trojan",
-            "server": "games2-1h9.pages.dev",
-            "port": 2053,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/tr7L1hnzLeVFaquBMh/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "games2-1H9.PAGES.dEv",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 24 - Trojan - Domain - 2053",
-            "type": "trojan",
-            "server": "www.speedtest.net",
-            "port": 2053,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/trwfHGbceUTcSMUgzx/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "gAMeS2-1H9.PAGeS.DEV",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 25 - Trojan - IPv4 - 2053",
-            "type": "trojan",
-            "server": "188.114.96.3",
-            "port": 2053,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/trAOBA1xeYrH3JTT0M/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "gAMeS2-1H9.pAGeS.Dev",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 26 - Trojan - IPv4 - 2053",
-            "type": "trojan",
-            "server": "188.114.97.3",
-            "port": 2053,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/trBPH1MIZ3IrLIV0We/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "GAmES2-1H9.pageS.dEv",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 27 - Trojan - IPv6 - 2053",
-            "type": "trojan",
-            "server": "2a06:98c1:3121::3",
-            "port": 2053,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/trvYN197AEvxkebbaA/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "gAmeS2-1H9.PaGeS.dEv",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 28 - Trojan - IPv6 - 2053",
-            "type": "trojan",
-            "server": "2a06:98c1:3120::3",
-            "port": 2053,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/troKrqFzatBPZ7lyGd/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "gaMES2-1H9.pAGes.Dev",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 29 - Trojan - Clean IP - 2053",
-            "type": "trojan",
-            "server": "www.gov.ua",
-            "port": 2053,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/tr0Oo3rWX1wffLEwfT/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "GaMES2-1H9.pAgeS.DEV",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 30 - Trojan - Clean IP - 2053",
-            "type": "trojan",
-            "server": "www.zsu.gov.ua",
-            "port": 2053,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/tr7ZqUaTUIaGuEOuiY/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "GAMeS2-1H9.PAges.Dev",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 31 - Trojan - Clean IP - 2053",
-            "type": "trojan",
-            "server": "malaysia.com",
-            "port": 2053,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/trbxpBLWjhQT54dDVh/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "gAmeS2-1h9.PAGeS.DEv",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 32 - Trojan - Clean IP - 2053",
-            "type": "trojan",
-            "server": "www.visa.co.jp",
-            "port": 2053,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/trTWiSOlPg2AEKfgUF/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "GAmEs2-1h9.PageS.dEv",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 33 - Trojan - Clean IP - 2053",
-            "type": "trojan",
-            "server": "www.csgo.com",
-            "port": 2053,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/trTOApWL299X3oKwoa/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "GaMES2-1H9.PAges.DEv",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 34 - Trojan - Clean IP - 2053",
-            "type": "trojan",
-            "server": "www.visa.com.hk",
-            "port": 2053,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/trXwwrHzudK72BzjVv/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "GamES2-1h9.PAGES.DEV",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 35 - Trojan - Clean IP - 2053",
-            "type": "trojan",
-            "server": "sky.rethinkdns.com",
-            "port": 2053,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/trSbJgtuMyA45OAmff/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "Games2-1h9.paGEs.dEv",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 36 - Trojan - Clean IP - 2053",
-            "type": "trojan",
-            "server": "fbi.gov",
-            "port": 2053,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/trf02mztSK0DO41Cyu/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "GAMeS2-1H9.PAGEs.Dev",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 37 - Trojan - Clean IP - 2053",
-            "type": "trojan",
-            "server": "time.is",
-            "port": 2053,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/trJZP4P08YJrA7wRYj/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "gAMEs2-1H9.PaGEs.dEV",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 38 - Trojan - Clean IP - 2053",
-            "type": "trojan",
-            "server": "ipw.nscl.ir",
-            "port": 2053,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/trhEu6eXLh5OVbIDtL/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "gaMes2-1H9.PaGeS.dEv",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 39 - Trojan - Clean IP - 2053",
-            "type": "trojan",
-            "server": "www.wto.org",
-            "port": 2053,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/tr3VpNy4FyXfCFXWOH/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "GAMes2-1H9.pAGeS.DEv",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 40 - Trojan - Clean IP - 2053",
-            "type": "trojan",
-            "server": "ip.sb",
-            "port": 2053,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/trbYQOh0srvjXosfvb/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "GamES2-1H9.paGES.DeV",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 41 - Trojan - Clean IP - 2053",
-            "type": "trojan",
-            "server": "zula.ir",
-            "port": 2053,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/trmjA42MwHQxjc56VM/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "gaMeS2-1h9.pagEs.DEV",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 42 - Trojan - Clean IP - 2053",
-            "type": "trojan",
-            "server": "creativecommons.org",
-            "port": 2053,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/tr0H6A31v8Jzs7kxGa/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "GAMES2-1H9.PagES.Dev",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 43 - Trojan - Clean IP - 2053",
-            "type": "trojan",
-            "server": "go.inmobi.com",
-            "port": 2053,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/trCy99AFh5MLc7BVOB/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "GAMes2-1h9.PaGes.DEv",
-            "alpn": [
-                "h2",
-                "http/1.1"
-            ],
-            "client-fingerprint": "random",
-            "skip-cert-verify": false
-        },
-        {
-            "name": "💦 44 - Trojan - Clean IP - 2053",
-            "type": "trojan",
-            "server": "cdnjs.com",
-            "port": 2053,
-            "password": "bpb-trojan",
-            "network": "ws",
-            "udp": true,
-            "ws-opts": {
-                "path": "/trOmRIIgE72L7R0kCg/ZGUucmFkaWNhbGx5LnBybw==",
-                "headers": {
-                    "host": "games2-1h9.pages.dev"
-                },
-                "max-early-data": 2560,
-                "early-data-header-name": "Sec-WebSocket-Protocol"
-            },
-            "sni": "games2-1H9.paGEs.DEV",
+            "servername": "TeST-E34.PageS.DEV",
             "alpn": [
                 "h2",
                 "http/1.1"
@@ -2246,191 +598,55 @@
             "type": "select",
             "proxies": [
                 "💦 Best Ping 💥",
-                "💦 1 - VLESS - Domain - 443",
-                "💦 2 - VLESS - Domain - 443",
-                "💦 3 - VLESS - IPv4 - 443",
-                "💦 4 - VLESS - IPv4 - 443",
-                "💦 5 - VLESS - IPv6 - 443",
-                "💦 6 - VLESS - IPv6 - 443",
-                "💦 7 - VLESS - Clean IP - 443",
-                "💦 8 - VLESS - Clean IP - 443",
-                "💦 9 - VLESS - Clean IP - 443",
-                "💦 10 - VLESS - Clean IP - 443",
-                "💦 11 - VLESS - Clean IP - 443",
-                "💦 12 - VLESS - Clean IP - 443",
-                "💦 13 - VLESS - Clean IP - 443",
-                "💦 14 - VLESS - Clean IP - 443",
-                "💦 15 - VLESS - Clean IP - 443",
-                "💦 16 - VLESS - Clean IP - 443",
-                "💦 17 - VLESS - Clean IP - 443",
-                "💦 18 - VLESS - Clean IP - 443",
-                "💦 19 - VLESS - Clean IP - 443",
-                "💦 20 - VLESS - Clean IP - 443",
-                "💦 21 - VLESS - Clean IP - 443",
-                "💦 22 - VLESS - Clean IP - 443",
-                "💦 23 - VLESS - Domain - 2053",
-                "💦 24 - VLESS - Domain - 2053",
-                "💦 25 - VLESS - IPv4 - 2053",
-                "💦 26 - VLESS - IPv4 - 2053",
-                "💦 27 - VLESS - IPv6 - 2053",
-                "💦 28 - VLESS - IPv6 - 2053",
-                "💦 29 - VLESS - Clean IP - 2053",
-                "💦 30 - VLESS - Clean IP - 2053",
-                "💦 31 - VLESS - Clean IP - 2053",
-                "💦 32 - VLESS - Clean IP - 2053",
-                "💦 33 - VLESS - Clean IP - 2053",
-                "💦 34 - VLESS - Clean IP - 2053",
-                "💦 35 - VLESS - Clean IP - 2053",
-                "💦 36 - VLESS - Clean IP - 2053",
-                "💦 37 - VLESS - Clean IP - 2053",
-                "💦 38 - VLESS - Clean IP - 2053",
-                "💦 39 - VLESS - Clean IP - 2053",
-                "💦 40 - VLESS - Clean IP - 2053",
-                "💦 41 - VLESS - Clean IP - 2053",
-                "💦 42 - VLESS - Clean IP - 2053",
-                "💦 43 - VLESS - Clean IP - 2053",
-                "💦 44 - VLESS - Clean IP - 2053",
-                "💦 1 - Trojan - Domain - 443",
-                "💦 2 - Trojan - Domain - 443",
-                "💦 3 - Trojan - IPv4 - 443",
-                "💦 4 - Trojan - IPv4 - 443",
-                "💦 5 - Trojan - IPv6 - 443",
-                "💦 6 - Trojan - IPv6 - 443",
-                "💦 7 - Trojan - Clean IP - 443",
-                "💦 8 - Trojan - Clean IP - 443",
-                "💦 9 - Trojan - Clean IP - 443",
-                "💦 10 - Trojan - Clean IP - 443",
-                "💦 11 - Trojan - Clean IP - 443",
-                "💦 12 - Trojan - Clean IP - 443",
-                "💦 13 - Trojan - Clean IP - 443",
-                "💦 14 - Trojan - Clean IP - 443",
-                "💦 15 - Trojan - Clean IP - 443",
-                "💦 16 - Trojan - Clean IP - 443",
-                "💦 17 - Trojan - Clean IP - 443",
-                "💦 18 - Trojan - Clean IP - 443",
-                "💦 19 - Trojan - Clean IP - 443",
-                "💦 20 - Trojan - Clean IP - 443",
-                "💦 21 - Trojan - Clean IP - 443",
-                "💦 22 - Trojan - Clean IP - 443",
-                "💦 23 - Trojan - Domain - 2053",
-                "💦 24 - Trojan - Domain - 2053",
-                "💦 25 - Trojan - IPv4 - 2053",
-                "💦 26 - Trojan - IPv4 - 2053",
-                "💦 27 - Trojan - IPv6 - 2053",
-                "💦 28 - Trojan - IPv6 - 2053",
-                "💦 29 - Trojan - Clean IP - 2053",
-                "💦 30 - Trojan - Clean IP - 2053",
-                "💦 31 - Trojan - Clean IP - 2053",
-                "💦 32 - Trojan - Clean IP - 2053",
-                "💦 33 - Trojan - Clean IP - 2053",
-                "💦 34 - Trojan - Clean IP - 2053",
-                "💦 35 - Trojan - Clean IP - 2053",
-                "💦 36 - Trojan - Clean IP - 2053",
-                "💦 37 - Trojan - Clean IP - 2053",
-                "💦 38 - Trojan - Clean IP - 2053",
-                "💦 39 - Trojan - Clean IP - 2053",
-                "💦 40 - Trojan - Clean IP - 2053",
-                "💦 41 - Trojan - Clean IP - 2053",
-                "💦 42 - Trojan - Clean IP - 2053",
-                "💦 43 - Trojan - Clean IP - 2053",
-                "💦 44 - Trojan - Clean IP - 2053"
+                "💦 1 - VLESS - Domain - 2053",
+                "💦 2 - VLESS - Domain - 2053",
+                "💦 3 - VLESS - IPv4 - 2053",
+                "💦 4 - VLESS - IPv4 - 2053",
+                "💦 5 - VLESS - Clean IP - 2053",
+                "💦 6 - VLESS - Clean IP - 2053",
+                "💦 7 - VLESS - Clean IP - 2053",
+                "💦 8 - VLESS - Clean IP - 2053",
+                "💦 9 - VLESS - Clean IP - 2053",
+                "💦 10 - VLESS - Clean IP - 2053",
+                "💦 11 - VLESS - Clean IP - 2053",
+                "💦 12 - VLESS - Clean IP - 2053",
+                "💦 13 - VLESS - Clean IP - 2053",
+                "💦 14 - VLESS - Clean IP - 2053",
+                "💦 15 - VLESS - Clean IP - 2053",
+                "💦 16 - VLESS - Clean IP - 2053",
+                "💦 17 - VLESS - Clean IP - 2053",
+                "💦 18 - VLESS - Clean IP - 2053",
+                "💦 19 - VLESS - Clean IP - 2053",
+                "💦 20 - VLESS - Clean IP - 2053"
             ]
         },
         {
             "name": "💦 Best Ping 💥",
             "type": "url-test",
             "url": "https://www.gstatic.com/generate_204",
-            "interval": 30,
+            "interval": 90,
             "tolerance": 50,
             "proxies": [
-                "💦 1 - VLESS - Domain - 443",
-                "💦 2 - VLESS - Domain - 443",
-                "💦 3 - VLESS - IPv4 - 443",
-                "💦 4 - VLESS - IPv4 - 443",
-                "💦 5 - VLESS - IPv6 - 443",
-                "💦 6 - VLESS - IPv6 - 443",
-                "💦 7 - VLESS - Clean IP - 443",
-                "💦 8 - VLESS - Clean IP - 443",
-                "💦 9 - VLESS - Clean IP - 443",
-                "💦 10 - VLESS - Clean IP - 443",
-                "💦 11 - VLESS - Clean IP - 443",
-                "💦 12 - VLESS - Clean IP - 443",
-                "💦 13 - VLESS - Clean IP - 443",
-                "💦 14 - VLESS - Clean IP - 443",
-                "💦 15 - VLESS - Clean IP - 443",
-                "💦 16 - VLESS - Clean IP - 443",
-                "💦 17 - VLESS - Clean IP - 443",
-                "💦 18 - VLESS - Clean IP - 443",
-                "💦 19 - VLESS - Clean IP - 443",
-                "💦 20 - VLESS - Clean IP - 443",
-                "💦 21 - VLESS - Clean IP - 443",
-                "💦 22 - VLESS - Clean IP - 443",
-                "💦 23 - VLESS - Domain - 2053",
-                "💦 24 - VLESS - Domain - 2053",
-                "💦 25 - VLESS - IPv4 - 2053",
-                "💦 26 - VLESS - IPv4 - 2053",
-                "💦 27 - VLESS - IPv6 - 2053",
-                "💦 28 - VLESS - IPv6 - 2053",
-                "💦 29 - VLESS - Clean IP - 2053",
-                "💦 30 - VLESS - Clean IP - 2053",
-                "💦 31 - VLESS - Clean IP - 2053",
-                "💦 32 - VLESS - Clean IP - 2053",
-                "💦 33 - VLESS - Clean IP - 2053",
-                "💦 34 - VLESS - Clean IP - 2053",
-                "💦 35 - VLESS - Clean IP - 2053",
-                "💦 36 - VLESS - Clean IP - 2053",
-                "💦 37 - VLESS - Clean IP - 2053",
-                "💦 38 - VLESS - Clean IP - 2053",
-                "💦 39 - VLESS - Clean IP - 2053",
-                "💦 40 - VLESS - Clean IP - 2053",
-                "💦 41 - VLESS - Clean IP - 2053",
-                "💦 42 - VLESS - Clean IP - 2053",
-                "💦 43 - VLESS - Clean IP - 2053",
-                "💦 44 - VLESS - Clean IP - 2053",
-                "💦 1 - Trojan - Domain - 443",
-                "💦 2 - Trojan - Domain - 443",
-                "💦 3 - Trojan - IPv4 - 443",
-                "💦 4 - Trojan - IPv4 - 443",
-                "💦 5 - Trojan - IPv6 - 443",
-                "💦 6 - Trojan - IPv6 - 443",
-                "💦 7 - Trojan - Clean IP - 443",
-                "💦 8 - Trojan - Clean IP - 443",
-                "💦 9 - Trojan - Clean IP - 443",
-                "💦 10 - Trojan - Clean IP - 443",
-                "💦 11 - Trojan - Clean IP - 443",
-                "💦 12 - Trojan - Clean IP - 443",
-                "💦 13 - Trojan - Clean IP - 443",
-                "💦 14 - Trojan - Clean IP - 443",
-                "💦 15 - Trojan - Clean IP - 443",
-                "💦 16 - Trojan - Clean IP - 443",
-                "💦 17 - Trojan - Clean IP - 443",
-                "💦 18 - Trojan - Clean IP - 443",
-                "💦 19 - Trojan - Clean IP - 443",
-                "💦 20 - Trojan - Clean IP - 443",
-                "💦 21 - Trojan - Clean IP - 443",
-                "💦 22 - Trojan - Clean IP - 443",
-                "💦 23 - Trojan - Domain - 2053",
-                "💦 24 - Trojan - Domain - 2053",
-                "💦 25 - Trojan - IPv4 - 2053",
-                "💦 26 - Trojan - IPv4 - 2053",
-                "💦 27 - Trojan - IPv6 - 2053",
-                "💦 28 - Trojan - IPv6 - 2053",
-                "💦 29 - Trojan - Clean IP - 2053",
-                "💦 30 - Trojan - Clean IP - 2053",
-                "💦 31 - Trojan - Clean IP - 2053",
-                "💦 32 - Trojan - Clean IP - 2053",
-                "💦 33 - Trojan - Clean IP - 2053",
-                "💦 34 - Trojan - Clean IP - 2053",
-                "💦 35 - Trojan - Clean IP - 2053",
-                "💦 36 - Trojan - Clean IP - 2053",
-                "💦 37 - Trojan - Clean IP - 2053",
-                "💦 38 - Trojan - Clean IP - 2053",
-                "💦 39 - Trojan - Clean IP - 2053",
-                "💦 40 - Trojan - Clean IP - 2053",
-                "💦 41 - Trojan - Clean IP - 2053",
-                "💦 42 - Trojan - Clean IP - 2053",
-                "💦 43 - Trojan - Clean IP - 2053",
-                "💦 44 - Trojan - Clean IP - 2053"
+                "💦 1 - VLESS - Domain - 2053",
+                "💦 2 - VLESS - Domain - 2053",
+                "💦 3 - VLESS - IPv4 - 2053",
+                "💦 4 - VLESS - IPv4 - 2053",
+                "💦 5 - VLESS - Clean IP - 2053",
+                "💦 6 - VLESS - Clean IP - 2053",
+                "💦 7 - VLESS - Clean IP - 2053",
+                "💦 8 - VLESS - Clean IP - 2053",
+                "💦 9 - VLESS - Clean IP - 2053",
+                "💦 10 - VLESS - Clean IP - 2053",
+                "💦 11 - VLESS - Clean IP - 2053",
+                "💦 12 - VLESS - Clean IP - 2053",
+                "💦 13 - VLESS - Clean IP - 2053",
+                "💦 14 - VLESS - Clean IP - 2053",
+                "💦 15 - VLESS - Clean IP - 2053",
+                "💦 16 - VLESS - Clean IP - 2053",
+                "💦 17 - VLESS - Clean IP - 2053",
+                "💦 18 - VLESS - Clean IP - 2053",
+                "💦 19 - VLESS - Clean IP - 2053",
+                "💦 20 - VLESS - Clean IP - 2053"
             ]
         }
     ],
@@ -2537,6 +753,7 @@
         "RULE-SET,ir,DIRECT",
         "RULE-SET,cn,DIRECT",
         "RULE-SET,ru,DIRECT",
+        "DOMAIN-SUFFIX,cloudflare.com,DIRECT",
         "RULE-SET,private-cidr,DIRECT,no-resolve",
         "RULE-SET,ir-cidr,DIRECT",
         "RULE-SET,cn-cidr,DIRECT",
